@@ -18,10 +18,14 @@
               background-color: white;
               font-size: 12pt;
             }
+            table, td, th{
+                border-collapse: collapse;
+                border: 5px solid #bb565600;
+            }
         </style>
     </head>
     <body>
-         <a href="index.html">Volatr para o indice</a>
+           <a href="index.html">Volatr para o indice</a>
     <h1>WEB</h1>
         </div>
         <h1>Titulo de nivel 1</h1>
@@ -84,12 +88,12 @@
             <img src="./img/download.jpg"alt="">
         </div>
         <div>
-            <h2>Tabelas no HTNL</h2>
+            <h2>Tabelas no HTML</h2>
             <table>
                 <tr>
-                    <td>item</td>
-                    <td>Descricao</td>
-                    <td>Quantidade</td>
+                    <th>item</th>
+                    <th>Descricao</th>
+                    <th>Quantidade</th>
                 </tr>
                 <tr>
                     <td>1</td>
@@ -98,6 +102,40 @@
                 </tr>
             </table>
         </div>
-      
+        <div>
+            <h2>Formularios</h2>
+            <label for="Nome usuario">Nome</label>
+            <input type="Nome usuario" type="text"     
+            placeholder="Digite o seu nome" required>
+            <br>
+            <label for="cor">Carne</label>
+            <input type="cor" type="color"
+            placeholder="Digite o tipo" required>
+            <br>
+            <label for="Data de nascimento">Data de nascimento</label>
+            <input type="date" id="Data de nascimento">
+            <br>
+            <label for="cor">Email</label>
+            <input type="email" id="email"
+            placeholder="Digite o seu email" required>
+            <br>
+            <label for="Endereço">Endereço</label>
+             <input id="endereco" type="text"
+             placeholder="Digite o seu endereco" required>
+            <br>
+
+            <form>
+            <input type="button" value="ENviar">
+            </form>
+
+            <form action="https://www.google.com/search"
+                method="post">
+                <h2>busca</h2>
+                <label for="key">Entre com termo</label>
+                <input type="text" id="key"name="q">
+                <button>buscar</button>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
     </body>
 </html>
