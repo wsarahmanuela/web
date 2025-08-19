@@ -1,0 +1,10 @@
+/** seletor{propriedade:valor;}**/
+p{
+    background-color: aqua;
+}
+#titulosformacss{
+    background-color: blueviolet;
+}
+.vermelho{
+    color: red;
+}
