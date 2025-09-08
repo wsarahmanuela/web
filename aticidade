@@ -1,0 +1,304 @@
+Ex2:
+<!--Seja o trecho de código HTML e CSS da figura a seguir e explique porque cada regra foi aplicada em cada item.-->
+<!DOCTYPE html>
+
+<head>
+    <title>Exemplo especificidade de seletores</title>
+    <style>
+        li {
+            color: red;
+        }
+        .churras {
+            color: green;
+        }
+        .fruta {
+            color: gray
+        }
+        li+li.churras {
+            color: black;
+        }
+        .churras[draggable="true"] {
+            color: magenta;
+        }
+        #lip1,#lip2,#lip3 {
+            color: blue
+        }
+        #lip3.fruta {
+            color: orange
+        }
+        li.churras#lip5 {
+            color: purple
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <!--item 1-->
+        <li id="lip0">Abacaxi</li>
+        <!--item 2-->
+        <li class="fruta">Melão</li>
+        <!--item 3-->
+        <li id="lip2" class="fruta">Pera</li>
+        <!--item 4-->
+        <li id="lip3" class="fruta">Uva</li>
+        <!--item 5-->
+        <li id="lip4" class="fruta">Maçã</li>
+        <!--item 6-->
+        <li class="churras">Carne</li>
+        <!--item 7-->
+        <li class="churras">Linguiça</li>
+        <!--item 8-->
+        <li id="lip7" class="churras" draggable="true">Pão de alho</li>
+    </ol>
+</body>
+
+</html>
+<!--Resposta
+item 1- Não tem classe e nem um atributo e não esta em nenhuma regra - vermelho
+item 2- Esse tem uma classe (.fruta)- cinza
+item 3- Tem classe, mas tem um ID lip2 é mais forte - azul
+item4- esse tbm tem uma clase fruta e tem o id3 e a regra 3 - laranja
+item 5- Tem a classe fruta, mas sem um id- cinza
+item 5- Tem a classe .churras- verde
+item 7- é um li.churras e logo tem mais um li- preto
+item 8 tem a classe .churras e tem um atributo- magenta-->
+
+
+Ex3:
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Lorem Ipsum Estilizado</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            line-height: 2;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .p1 {
+            font-family: Georgia, serif;
+            color: red;
+        }
+
+        .p2 {
+            font-family: Trebuchet MS, sans-serif;
+            color: gray;
+        }
+
+        .p3 {
+            font-family: Courier New, monospace;
+            color: blue;
+        }
+
+        .p4 {
+            font-family: Palatino, serif;
+            color: green;
+        }
+
+        .p5 {
+            font-family: Verdana, sans-serif;
+            color: purple;
+        }
+
+        .p6 {
+            font-family: Tahoma, sans-serif;
+            color: darkorange;
+        }
+
+        .texto-1 {
+            background: #ff9999;
+            font-weight: bold;
+        }
+
+        .texto-2 {
+            background: #e6ffe6;
+            font-style: italic;
+        }
+
+        .texto-3 {
+            background: #e6f0ff;
+            text-decoration: underline;
+        }
+
+        .texto-4 {
+            background: #f2ffe6;
+        }
+
+        .texto-5 {
+            background: #ffe6ff;
+        }
+
+        .texto-6 {
+            background: #fff2e6;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lorem Ipsum com Destaques</h1>
+    <p class="p1">Lorem ipsum dolor sit amet, <span class="texto-1">consectetur</span> adipiscing elit.</p>
+    <p class="p2">Sed nisi. Nulla <span class="texto-2">quis</span> sem at nibh elementum imperdiet.</p>
+    <p class="p3">Vestibulum <span class="texto-3">lacinia</span> arcu eget nulla.</p>
+    <p class="p4">Curabitur sodales ligula in <span class="texto-4">libero</span>.</p>
+    <p class="p5">In scelerisque sem at dolor. Proin <span class="texto-5">nunc</span> egestas.</p>
+    <p class="p6">Morbi lectus risus, suscipit <span class="texto-6">lacinia</span> aliquet.</p>
+</body>
+
+</html>
+
+Ex4:
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4a-display</title><!--explicaçao: as divs tem o padrao em display block com a largura de 100% e um fica embaixo do outro-->
+    <style>
+        div {
+            height: 100px;
+            font-size: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        #d1 {
+            background: blue;
+        }
+
+        #d2 {
+            background: green;
+        }
+
+        #d3 {
+            background: red;
+        }
+
+        #d4 {
+            background: yellow;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">1</div>
+    <div id="d2">2</div>
+    <div id="d3">3</div>
+    <div id="d4">4</div>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4b-display</title><!--aqui tem o display:inline-block e isso nao ocupam a toda a largura e fica uma do lado da outra-->
+    <style>
+        div {
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            font-size: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        #d1 {
+            background: blue;
+        }
+
+        #d2 {
+            background: green;
+        }
+
+        #d3 {
+            background: red;
+        }
+
+        #d4 {
+            background: yellow;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">1</div>
+    <div id="d2">2</div>
+    <div id="d3">3</div>
+    <div id="d4">4</div>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4c-display</title><!--aqui cada div tem sua direcao, para centralizar usei o top e o left-->
+    <style>
+        body {
+            position: relative;
+            height: 100vh;
+            margin: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            position: absolute;
+        }
+        #d1 {
+            background: red;
+            top: 0;
+            left: 0;
+        }
+        #d2 {
+            background: yellow;
+            color: black;
+            top: 0;
+            right: 0;
+        }
+        #d3 {
+            background: magenta;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #d4 {
+            background: blue;
+            bottom: 0;
+            left: 0;
+        }
+        #d5 {
+            background: green;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">box1</div>
+    <div id="d2">box2</div>
+    <div id="d3">box3</div>
+    <div id="d4">box4</div>
+    <div id="d5">box5</div>
+</body>
+</html>
+
