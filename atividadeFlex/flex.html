@@ -1,0 +1,176 @@
+<!--Questão 1 -- Nivel 12. O objetivo era posicionar os sapos verdes sobre os lírios que estão distribuidos com espaços entre eles e nas bordas
+justify-content: space-around;-->
+<!--com o justify-content: space-around, os sapos se distribuem uniformente, mas com espacos nas bordas-->
+
+<!--Nivel 14. O objetivo era alinhas os sapos verticamente no centro da tela
+align-items: center; -->
+<!--align-items alinha os itens no eixo cruzado e o center centraliza os iten verticalmente dentro do container-->
+
+
+<!--Questão 2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: aliceblue;
+        }
+        .container{
+            border: 2px solid purple;
+            width: 300px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        .logo{
+            font-size: 20px;
+            color: gray;
+            margin-bottom: 20px;
+        }
+        .line{
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 4px;
+        }
+        .lines{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .circle {
+            width: 70px;
+            height: 70px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            margin: 20px 0;
+        }
+        .button {
+           width: 80px;
+           height: 20px;
+           background: #e0e0e0;
+           border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Company Logo</div>
+        <div class="lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div class="circle"></div>
+        <div class="button"></div>
+    </div>
+    
+</body>
+</html>
+
+<!--Questão 3-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <style>
+        body {
+      background-color: #aaa;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 50px 0;
+    }
+
+    .container {
+      background-color: #fff;
+      width: 300px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .userPerfil {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .name {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .address {
+      font-size: 0.85em;
+      color: #777;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user ">
+            <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg">
+            <div class="userPerfil">
+                <div class="name">Linda Hart</div>
+                <div class="address">2420</div>
+            </div>
+        </div>
+
+        <div class="user">
+            <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg">
+            <div class="userPerfil">
+                <div class="name">Roger Medina</div>
+                <div class="address">2420 </div>
+            </div>
+        </div>
+
+        <div class="user">
+            <img class="avatar" src="https://randomuser.me/api/portraits/men/45.jpg" >
+            <div class="userPerfil">
+                <div class="name">Dean Sullivan</div>
+                <div class="address">6727 </div>
+            </div>
+        </div>
+
+        <div class="user">
+            <img class="avatar" src="https://randomuser.me/api/portraits/women/68.jpg">
+            <div class="userPerfil">
+                <div class="nome">Elizabeth Austin</div>
+                <div class="address"> 6685 </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!--Questão 4-->
+  
