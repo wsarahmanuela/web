@@ -95,7 +95,7 @@ align-items: center; -->
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
-      padding: 50px 0;
+      padding: 50px;
     }
 
     .container {
@@ -173,4 +173,164 @@ align-items: center; -->
 </html>
 
 <!--Questão 4-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Box</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: antiquewhite;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 25px;
+      background-position: center;
+      background-size: cover;
+      height: 300px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      flex: 1; /* todos os cards tem tamanho proporcional */
+      overflow: hidden;
+    }
+
+    .card.main {
+      flex: 3; /* card principal sera maior que os outros */
+      justify-content: flex-start;
+      padding: 20px;
+    }
+
+    .info {
+      position: relative;
+      color: white;
+      z-index: 1;
+    }
+
+    .info h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .info p {
+      margin: 5px;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');"></div>
+
+    <div class="card main" style="background-image: url('https://images.unsplash.com/photo-1482192596544-9eb780fc7f66');">
+      <div class="info">
+        <h1>Oretemauw</h1>
+        <p>Omuke trughte a otufa</p>
+      </div>
+    </div>
+
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');"></div>
+
+    <div class="card" style="background-image: url('https://images..com/photo-1520975926219-19f0b1b7f2b6');"></div>
+
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');"></div>
+  </div>
+</body>
+</html>
+
+
+<!--Questão 5-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 80vh;
+      max-width: 800px;
+    }
+    .Header {
+      background-color: #a6ce39;
+      padding: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .main {
+      display: flex;
+      flex: 1;
+    }
+    
+    .Article {
+      flex: 3;
+      background-color: #f9f9f9;
+      padding: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .Aside {
+      flex: 1;
+      background-color: #fff9e5;
+      padding: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .Nav {
+      flex: 1;
+      background-color: #e4f0e4;
+      padding: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .Footer {
+      background-color: #a6ce39;
+      padding: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+  </style>
+</head>
+<body>
+   <div class="container">
+    <div class="Header">Header</div>
+
+    <div class="main">
+      <div class="Article">Article</div>
+      <div class="Aside">Aside</div>
+      <div class="Nav">Nav</div>
+    </div>
+
+    <div class="Footer">Footer</div>
+  </div>
+</body>
+</html>
   
