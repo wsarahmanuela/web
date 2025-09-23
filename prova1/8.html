@@ -18,18 +18,17 @@
         }
 
         .container {
-            display: grid; /* ativa CSS grid */
-            min-height: 500px; /* altura minima */
-            gap: 3px; /* espaço entre os elementos do grid */
+            display: grid; 
+            min-height: 500px; 
+            gap: 3px; 
             background-color: #fff;
             border: 2px solid #ccc;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        /* Desktop - tela maior */
         @media (min-width: 768px) {
             .container {
-                grid-template-areas:/*aqui ta definindo a area do grid*/
+                grid-template-areas:
                     "header header header header"
                     "left-aside banner banner right-aside"
                     "left-aside main-content main-content right-aside"
@@ -41,10 +40,9 @@
             }
         }
 
-        /* Mobile - tela menor */
         @media (max-width: 767px) {
             .container {
-                grid-template-areas: /* Cada area ocupa uma linha */
+                grid-template-areas: 
                     "header"
                     "banner"
                     "left-aside"
@@ -59,11 +57,11 @@
         }
 
         .header {
-            grid-area: header; /* conecta ao grid */
+            grid-area: header; 
             background-color: #ffa500;
-            display: flex; /* flexbox para centralizar conteudo */
-            align-items: center; /* centraliza verticalmente */
-            justify-content: center; /* centraliza horizontalmente */
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
             font-weight: bold;
             color: #333;
             font-size: 14px;
@@ -89,7 +87,7 @@
             font-weight: bold;
             color: white;
             font-size: 12px;
-            writing-mode: vertical-rl;/* texto vertical (desktop) */
+            writing-mode: vertical-rl;
             text-orientation: mixed;
         }
 
@@ -99,7 +97,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;/* coloca o texto em coluna */
+            flex-direction: column;
             color: white;
             font-weight: bold;
             text-align: center;
@@ -115,7 +113,7 @@
             font-weight: bold;
             color: #333;
             font-size: 12px;
-            writing-mode: vertical-rl;/* texto vertical (desktop) */
+            writing-mode: vertical-rl;
             text-orientation: mixed;
         }
 
@@ -147,7 +145,6 @@
             opacity: 0.8;
         }
 
-        /* Texto vertical para mobile tbm */
         @media (max-width: 767px) {
             .left-aside, .right-aside {
                 writing-mode: horizontal-tb;
