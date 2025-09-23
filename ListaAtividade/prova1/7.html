@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4c-display</title><!--aqui cada div tem sua direcao, para centralizar usei o top e o left-->
+    <style>
+        body {
+            position: relative;
+            height: 100vh;
+            margin: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            position: absolute;
+        }
+        #d1 {
+            background: red;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+        }
+        #d2 {
+            background: blue;
+            color: black;
+            top: 0;
+            right: 0;
+            border-radius: 50%;
+        }
+        #d3 {
+            background: magenta;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        #d4 {
+            background: green;
+            bottom: 0;
+            left: 0;
+            border-radius: 50%;
+        }
+        #d5 {
+            background: yellow;
+            bottom: 0;
+            right: 0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <div id="d4"></div>
+    <div id="d5"></div>
+</body>
+</html>
