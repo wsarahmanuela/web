@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>|Tipo de Variaveis</title>
+</head>
+<body>
+    <h2>Tippo de Variaveis </h2>
+    <button onclick="tipos()">Executar</button>
+
+    <p id="pstring"></p>
+    <p id="pnumber"></p>
+    <p id="pboolean"></p>
+    <p id="pundefined"></p>
+    <p id="pnull"></p>
+    <p id="pobject"></p>
+    <p id="parray"></p>
+    <p id="operacoes"></p>
+
+
+    <script>
+        function tipos() {
+            let texto = "Oi";
+            let numero = 10;
+            let logico = true;
+            let indefinido;
+            let nulo = null;
+            let objeto = {nome: "Sarah", idade: 17};
+            let lista = [1, 2, 3];
+
+            document.getElementsById("pstring").innerText = "String" + typeof texto;
+            document.getElementById("pnumber").innerText = "number" + typeof numero;
+            document.getElementById("pboolean").innerText = "boolean" +typeof logico;
+            document.getElementById("pundefined").innerText = "undefined" + typeof indefinido;
+            document.getElementById("pnull").innerText = "null" + typeof nulo;
+            document.getElementById("pobject").innerText = "object" + typeof objeto;
+            document.getElementById("parray").innerText = "array" + typeof lista;
+
+            let operacoa1 = texto + numero; 
+            let operacoa2 = logico * numero;
+            let operacoa3 = texto * numero;
+
+            console.log("texto + numero = ", operacoa1);
+            console.log("logico * numero = ", operacoa2);
+            console.log("texto * numero = ", operacoa3);
+
+            document.getElementById("operacoes").innerText = 
+                `texto + numero = ${operacoa1} (concatenação)\n` +
+                `logico * numero = ${operacao2} (true vira 1)\n` +
+                `texto * numero = ${operacao3} (NaN porque string * number não faz sentido)`;
+        }
+
+    
+    </script>
+</body>
+</html>
