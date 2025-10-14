@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alteração de Cores com Tecla de Espaço</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .box {
+      width: 120px;
+      height: 120px;
+      border-radius: 4px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: background-color 0.4s;
+    }
+
+    .hint {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pressione <b>ESPAÇO</b> para alterar as cores</h1>
+
+  <div class="container" id="container">
+    <div class="box" style="background:#05668D">#05668D</div>
+    <div class="box" style="background:#427AA1">#427AA1</div>
+    <div class="box" style="background:#EBF2FA; color:#111">#EBF2FA</div>
+    <div class="box" style="background:#679436">#679436</div>
+    <div class="box" style="background:#A5BE00">#A5BE00</div>
+  </div>
+
+  <script>
+    const boxes = document.querySelectorAll('.box');
+
+    function randomColor() {
+      const letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function changeColors() {
+      boxes.forEach(box => {
+        const color = randomColor();
+        box.style.backgroundColor = color;
+        box.textContent = color;
+        const r = parseInt(color.substr(1,2),16);
+        const g = parseInt(color.substr(3,2),16);
+        const b = parseInt(color.substr(5,2),16);
+        const brightness = (r*0.299 + g*0.587 + b*0.114);
+        box.style.color = brightness > 150 ? "#111" : "#fff";
+      });
+    }
+    document.addEventListener('keydown', (event) => {
+      if (event.code === 'Space') {
+        event.preventDefault();
+        changeColors();
+      }
+    });
+  </script>
+</body>
+</html>

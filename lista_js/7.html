@@ -1,14 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificador de Palíndromos</title>
-    <style>
-        
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Verificador de Palíndromos</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      gap: 2rem;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      padding: 20px;
+      max-width: 420px;
+      width: 100%;
+    }
+    h1 { margin-top: 0; font-size: 1.3rem; }
+    label { display:block; margin-bottom:8px; font-weight:600; }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #ccd6df;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    .controls { margin-top:12px; display:flex; gap:8px; }
+    button {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button#check { background: #2563eb; color: white; }
+    .result {
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .ok { background: #ecfdf5; color: #065f46; border: 1px solid #bbf7d0; }
+    .no { background: #fff1f2; color: #9f1239; border: 1px solid #fecaca; }
+    
+  </style>
 </head>
 <body>
+  <div class="card" role="main" aria-labelledby="title">
+    <h1 id="title">Verificador de Palíndromos</h1>
+
+    <label for="inputText">Digite uma palavra ou frase:</label>
+    <input id="inputText" type="text" placeholder="Ex.: aba, arara, A man, a plan..." />
+
+    <div class="controls">
+      <button id="check">Verificar</button>
+    </div>
+
+    <div id="result" class="result small" aria-live="polite"></div>
+
+  <script>
     
+    function cleanString(s) {
+      return s
+        .normalize('NFD')                  
+        .replace(/[\u0300-\u036f]/g, '')  
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, '');       
+    }
+
+    function isPalindrome(s) {
+      const cleaned = cleanString(s);
+      if (cleaned.length === 0) return null; 
+      const reversed = cleaned.split('').reverse().join('');
+      return cleaned === reversed;
+    }
+
+    const input = document.getElementById('inputText');
+    const btn = document.getElementById('check');
+    const examplesBtn = document.getElementById('examples');
+    const resultDiv = document.getElementById('result');
+
+    function showResult(message, ok) {
+      resultDiv.textContent = message;
+      resultDiv.classList.remove('ok','no');
+      if (ok === true) resultDiv.classList.add('ok');
+      else if (ok === false) resultDiv.classList.add('no');
+    }
+
+    btn.addEventListener('click', () => {
+      const text = input.value;
+      const res = isPalindrome(text);
+      if (res === null) {
+        showResult('Digite uma palavra ou frase para verificar.', false);
+      } else if (res) {
+        showResult(`"${text}" — é palíndromo `, true);
+      } else {
+        showResult(`"${text}" — não é palíndromo `, false);
+      }
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  </script>
 </body>
 </html>

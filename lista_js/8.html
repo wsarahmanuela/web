@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mudança de Cor de Fundo</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      transition: background-color 0.6s ease;
+    }
+
+    h1 {
+      color: #222;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.6rem;
+    }
+
+    button {
+      background-color: #111827;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    button:hover {
+      background: #1f2937;
+      transform: scale(1.05);
+    }
+
+    .color-box {
+      margin-top: 18px;
+      font-size: 1.1rem;
+      background: rgba(255,255,255,0.8);
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.15);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s, transform 0.1s;
+    }
+
+    .color-box:hover {
+      background: rgba(255,255,255,1);
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+  <h1>Mudança de cor de fundo com clique</h1>
+
+  <button id="btnChange">Mudar Cor</button>
+
+  <div id="colorDisplay" class="color-box" title="Clique para copiar">
+    Clique em "Mudar Cor"
+  </div>
+
+  <script>
+    const btn = document.getElementById("btnChange");
+    const colorDisplay = document.getElementById("colorDisplay");
+
+    function randomColor() {
+      const letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+    btn.addEventListener("click", () => {
+      const color = randomColor();
+      document.body.style.backgroundColor = color;
+      colorDisplay.textContent = color;
+      colorDisplay.style.borderColor = color;
+      navigator.clipboard.writeText(color);
+      colorDisplay.title = "Cor copiada!";
+      setTimeout(() => colorDisplay.title = "Clique para copiar", 1500);
+    });
+
+    colorDisplay.addEventListener("click", () => {
+      const text = colorDisplay.textContent;
+      if (text.startsWith("#")) {
+        navigator.clipboard.writeText(text);
+        colorDisplay.textContent = text + " (copiado!)";
+        setTimeout(() => colorDisplay.textContent = text, 1000);
+      }
+    });
+  </script>
+</body>
+</html>

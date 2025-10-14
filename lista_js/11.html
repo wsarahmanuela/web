@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorando Eventos em JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      margin-top: 60px;
+      background-color: #f2f2f2;
+    }
+
+    #hoverDiv {
+      width: 220px;
+      height: 100px;
+      line-height: 100px;
+      background-color: #d9d9d9;
+      border-radius: 8px;
+      margin: 20px auto;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    input, select, button {
+      padding: 8px 12px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <button id="alertButton">Clique aqui</button>
+  <input type="text" id="textInput" placeholder="Digite algo">
+  <div id="hoverDiv">Passe o mouse aqui</div>
+  <select id="colorSelect">
+    <option value="">Escolha uma cor</option>
+    <option value="blue">Azul</option>
+    <option value="green">Verde</option>
+    <option value="red">Vermelho</option>
+  </select>
+
+  <script>
+    const alertButton = document.getElementById('alertButton');
+    const textInput = document.getElementById('textInput');
+    const hoverDiv = document.getElementById('hoverDiv');
+    const colorSelect = document.getElementById('colorSelect');
+
+    // (a) 
+    alertButton.addEventListener('click', () => {
+      alert('Você clicou no botão!');
+    });
+
+    // (b) 
+    textInput.addEventListener('keydown', (event) => {
+      console.log('Tecla pressionada:', event.key);
+    });
+
+    // (c) 
+    textInput.addEventListener('focus', () => {
+      textInput.style.backgroundColor = 'yellow';
+    });
+
+    // (d) 
+    textInput.addEventListener('blur', () => {
+      textInput.style.backgroundColor = 'white';
+    });
+
+    // (e) 
+    hoverDiv.addEventListener('mouseover', () => {
+      hoverDiv.style.backgroundColor = '#90ee90'; 
+    });
+
+    // (f) 
+    hoverDiv.addEventListener('mouseout', () => {
+      hoverDiv.style.backgroundColor = '#d9d9d9';
+    });
+
+    // (g) 
+    colorSelect.addEventListener('change', () => {
+      const color = colorSelect.value;
+      if (color) {
+        document.body.style.backgroundColor = color;
+      } else {
+        document.body.style.backgroundColor = '#f2f2f2';
+      }
+    });
+  </script>
+</body>
+</html>
