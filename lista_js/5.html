@@ -3,41 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador de numero</title>
+    <title>Gerenciador de numeros</title>
     <style>
         body {
-            background-color: #201c1c;
-            color: #f5f5f5;
+            background-color: #ffffff;
+            color: #000000;
             font-family: 'Poppins', Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
         }
 
         input {
-            background-color: #111;
-            color: #fff;
+            color: #000000;
             border: 1px solid #eb17bd;
             border-radius: 8px;
             padding: 8px;
             width: 100px;
             margin: 5px;
         }
-
         button {
             background-color: #eb17bd;
-            color: #000;
             border-radius: 10px;
             padding: 10px 20px;
             cursor: pointer;
             transition: 0.3s;
         }
-
-
         ul {
             list-style: none;
             padding: 0;
         }
-
         li {
             margin: 5px 0;
             background: rgba(255, 0, 200, 0.1);
@@ -47,34 +41,32 @@
     </style>
 </head>
 <body>
+    
     <h1>Gerenciador de Numeros</h1>
 
-    <label>Minimo: <input type="number" id="min" placeholder="1"></label><br>
+    <label>Minimo: <input type="number" id="min" placeholder="Ex: 1"></label><br>
     <label>Máximo: <input type="number" id="max" placeholder="Ex: 100"></label><br>
-
     <button onclick="sortear()"Sortear></button>
-
     <p> Resultado: <span id="resultado"></span></p>
 
     <h3>Numero Sorteados</h3>
-    <ul id="lista"></ul>
+    <ul id="lista"></ul><!--verifica se ja foi sorteado -->
 
     <script>
         const historico = []; 
-
         function sortear() {
             const min = parseInt(document.getElementById("min").value);
             const max = parseInt(document.getElementById("max").value);
 
             if (isNaN(min) || isNaN(max) || min >= max) {
-                alert("Digite valores válidos! (minimo menor que o maximo)");
+                alert("Digite valores válidos");
                 return;
             }
 
             const numero = Math.floor(Math.random()*(max - min + 1)) + min;
             document.getElementById("resultado").innerText = numero;
-
             const encontrado = historico.find(item => item.numero === numero);
+
             if (encontrado) {
                 encontrado.vezes++;
             } else {
@@ -82,7 +74,6 @@
             }
             atualizarLista();
         }
-
         function atualizarLista() {
             const lista = document.getElementById("lista");
             lista.innerHTML = "";
