@@ -72,20 +72,18 @@
             const final = parseInt(document.getElementById("final").value);
             const resultado = document.getElementById("numerosPrimos");
             if (isNaN(inicio) || isNaN(final)) {
-                resultado.innerHTML = "<p style='color:red;'>Digite ambos os números!</p>";
+                resultado.innerHTML = "<p style='color:red;'>Digite ambos os numeros!</p>";
                 return;
             }
 
             let inicioValido = Math.min(inicio, final);
             let finalValido = Math.max(inicio, final);
-
             let primos = [];
             for (let i = inicioValido; i <= finalValido; i++) {
                 if (ehPrimo(i)) primos.push(i);
             }
-
             if (primos.length === 0) {
-                resultado.innerHTML = "<p style='color:orange;'>Nenhum número primo encontrado neste intervalo.</p>";
+                resultado.innerHTML = "<p style='color:orange;'>Nenhum numero primo encontrado neste intervalo.</p>";
             } else {
                 resultado.innerHTML = `<p>Primos encontrados (${primos.length}):</p><p class="primo">${primos.join(", ")}</p>`;
             }

@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explorando Eventos em JavaScript</title>
+  <title>Eventos</title>
   <style>
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial;
       text-align: center;
       margin-top: 60px;
-      background-color: #f2f2f2;
+      background-color: white;
     }
 
     #hoverDiv {
       width: 220px;
       height: 100px;
       line-height: 100px;
-      background-color: #d9d9d9;
+      background-color: white;
       border-radius: 8px;
       margin: 20px auto;
       font-weight: bold;
-      transition: background 0.3s;
     }
 
     input, select, button {
@@ -34,8 +33,7 @@
     button {
       background-color: #4CAF50;
       color: white;
-      cursor: pointer;
-      transition: background 0.3s;
+      
     }
 
     button:hover {
@@ -60,37 +58,37 @@
     const hoverDiv = document.getElementById('hoverDiv');
     const colorSelect = document.getElementById('colorSelect');
 
-    // (a) 
+    // a
     alertButton.addEventListener('click', () => {
       alert('Você clicou no botão!');
     });
 
-    // (b) 
+    // b
     textInput.addEventListener('keydown', (event) => {
       console.log('Tecla pressionada:', event.key);
     });
 
-    // (c) 
+    // c 
     textInput.addEventListener('focus', () => {
       textInput.style.backgroundColor = 'yellow';
     });
 
-    // (d) 
+    // d 
     textInput.addEventListener('blur', () => {
       textInput.style.backgroundColor = 'white';
     });
 
-    // (e) 
+    // e 
     hoverDiv.addEventListener('mouseover', () => {
       hoverDiv.style.backgroundColor = '#90ee90'; 
     });
 
-    // (f) 
+    // f
     hoverDiv.addEventListener('mouseout', () => {
       hoverDiv.style.backgroundColor = '#d9d9d9';
     });
 
-    // (g) 
+    // g
     colorSelect.addEventListener('change', () => {
       const color = colorSelect.value;
       if (color) {
