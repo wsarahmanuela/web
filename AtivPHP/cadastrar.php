@@ -9,12 +9,11 @@
 <h2>Cadastro de Alunos</h2>
 
 <form method="POST">
-    Nome: <input type="text" name="nome" required><br><br>
-    Idade: <input type="number" name="idade" required><br><br>
-    Turma: <input type="text" name="turma" required><br><br>
+    Nome:<input type="text" name="nome" required><br>
+    Idade:<input type="number" name="idade" required><br>
+    Turma:<input type="text" name="turma" required><br>
     <button type="submit" name="salvar">Salvar</button>
 </form>
-
 <br>
 <a href="listar.php">Ver lista de toods os alunos</a>
 </body>
@@ -31,7 +30,7 @@ if (isset($_POST['salvar'])) {
     $sql = "INSERT INTO alunos (nome, idade, turma) VALUES ('$nome', '$idade', '$turma')";
 
     if (mysqli_query($con, $sql)) {
-        echo "Aluno cadastrado com sucesso!";
+        echo "Aluno cadastrado com sucesso";
     } else {
         echo "Erro" . mysqli_error($con);
     }
