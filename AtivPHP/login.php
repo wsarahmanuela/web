@@ -13,11 +13,11 @@
     </header>
     <div class="container">
     
-    <form action="LoginProcesso.php" method="POST">
+    <form action="loginFormulario.php" method="POST">
         <label for="email">Email: </label>
         <input type="text" class="input" id="email" name="email" ><br></br>
-        <label for="senha">Senha: </label>
-        <input type="text" class="input" id="senha" name="senha" ><br></br>
+        <label for="matricula">Matricula: </label>
+        <input type="text" class="input" id="matricula" name="matricula" ><br></br>
         <input type="submit" id="button" value="Entrar">
     </form>
     </div>

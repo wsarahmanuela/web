@@ -13,7 +13,7 @@
     </header>
     <div class="container">
     
-    <form action="CadastroProcesso.php" method="POST">
+    <form action="cadastroFormulario.php" method="POST">
        
         <label for="nome">Nome: </label>
         <input class="input" type="text" id="nome" name="nome"  value="<?php $nome = isset($_GET['nome'])?$_GET['nome']:"" ;echo $nome ?>" ><br></br>
@@ -24,8 +24,6 @@
         <label for="senha">Matricula: </label>
         <input class="input" type="number" id="matricula" name="matricula" value="<?php $matricula = isset($_GET['matricula'])?$_GET['matricula']:"" ;echo $matricula ?>"><br></br>
 
-        <label for="dataNascimento">Data de Nascimento: </label>
-        <input class="input" type="date" id="dataNascimento" name="dataNascimento" value="<?php $dataNascimento = isset($_GET['dataNascimento'])?$_GET['dataNascimento']:"" ;echo $dataNascimento ?>" ><br></br>
 
         <input type="submit" id="button" value="Cadastrar">
     </form>
