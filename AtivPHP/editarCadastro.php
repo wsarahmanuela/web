@@ -1,7 +1,14 @@
 <?php
     require_once ("conexao.php");
+     if (!isset($_GET['id']) || empty($_GET['id'])) {
+        echo "<script>alert('ID não encontrado'); window.location.href='menu.php';</script>";
+        exit;
+    }
     $usuario = select_usuario($_GET['id']);
-
+    if (!$usuario) {
+        echo "<script>alert('Usuario não encontrado!'); window.location.href='menu.php';</script>";
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Cadastro</title>
-    <link rel="stylesheet" href="EditarCadastro.css?v=1">
+    <link rel="stylesheet" href="editarCadastro.css?v=1">
 </head>
 <body>
 <header>

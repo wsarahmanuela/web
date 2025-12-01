@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="Cadastro.css?v=1">
+    <link rel="stylesheet" href="cadastro.css?v=1">
 </head>
 <body>
     <header>
@@ -30,12 +30,6 @@
     </div>
 </body>
 </html>
-<form method="POST">
-    Nome:<input type="text" name="nome" required><br>
-    Idade:<input type="number" name="idade" required><br>
-    Turma:<input type="text" name="turma" required><br>
-    <button type="submit" name="salvar">Salvar</button>
-</form>
 <br>
 <a href="listar.php">Ver lista de toods os alunos</a>
 </body>

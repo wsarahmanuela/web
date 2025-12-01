@@ -1,19 +1,21 @@
 <?php
-$host = "localhost";
-$user = "root"; 
-$pass = "Glsarah25!"; 
-$db = "escola";
-
-$conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
-if (!$conexao) {
-    die("Erro na conexao: " . mysqli_connect_error());
+function connecta_bd(){
+    $host = "localhost";
+    $user = "root"; 
+    $pass = "Glsarah25!"; 
+    $db = "escola";
+    $conexao = mysqli_connect($host, $user, $pass, $db);
+    if (!$conexao) {
+        die("Erro na conexão: " . mysqli_connect_error());
+    }
+    return $conexao;
 }
-return $conexao;
-function cadastro($email, $nome,$matricula){
+
+function cadastra_usuario($email, $nome, $matricula, $dataNascimento){
     $conexao = connecta_bd();
-    $stmt = $conexao->prepare("ISERT INTO usarios (email, nome, matricula)VALUES(?,?,?)");
-    $stmt->bind_param('ssis', $email, $nome, $matricula);
-    $resultado=$stmt->execute();
+    $stmt = $conexao->prepare("INSERT INTO usuarios (email, nome, matricula, data_nascimento) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param('ssis', $email, $nome, $matricula, $dataNascimento);
+    $resultado = $stmt->execute();
     $stmt->close();
     $conexao->close();
     return $resultado;
@@ -29,7 +31,7 @@ function delete_usuario($id){
 }
 function update_usuario($id, $email, $nome, $matricula){
     $conexao = connecta_bd();
-    $stmt = $conexao->prepare("UPDATE usuarios SET email = ?, nome = ?, matricula = ?WHERE id = ?");
+    $stmt = $conexao->prepare("UPDATE usuarios SET email = ?, nome = ?, matricula = ? WHERE id = ?");
     $stmt->bind_param('ssii', $email, $nome, $matricula, $id);
     $resultado = $stmt->execute();
     $stmt->close();
@@ -57,4 +59,5 @@ function select_usuarios(){
     $conexao->close();
     return $usuarios;
 }
+?>
 ?>
