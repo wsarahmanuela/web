@@ -30,3 +30,32 @@
     </div>
 </body>
 </html>
+<form method="POST">
+    Nome:<input type="text" name="nome" required><br>
+    Idade:<input type="number" name="idade" required><br>
+    Turma:<input type="text" name="turma" required><br>
+    <button type="submit" name="salvar">Salvar</button>
+</form>
+<br>
+<a href="listar.php">Ver lista de toods os alunos</a>
+</body>
+</html>
+
+<?php
+if (isset($_POST['salvar'])) {
+    include "conexao.php";
+
+    $nome = $_POST['nome'];
+    $idade = $_POST['idade'];
+    $turma = $_POST['turma'];
+
+    $sql = "INSERT INTO alunos (nome, idade, turma) VALUES ('$nome', '$idade', '$turma')";
+
+    if (mysqli_query($con, $sql)) {
+        echo "Aluno cadastrado com sucesso";
+    } else {
+        echo "Erro" . mysqli_error($con);
+    }
+}
+?>
+
