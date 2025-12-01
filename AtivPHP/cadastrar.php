@@ -17,7 +17,7 @@
        
         <label for="nome">Nome: </label>
         <input class="input" type="text" id="nome" name="nome"  value="<?php $nome = isset($_GET['nome'])?$_GET['nome']:"" ;echo $nome ?>" ><br></br>
-
+<!--se existir 'nome' na url vai colocar esse valor dentro do input-->
         <label for="email">Email: </label>
         <input class="input" type="text" id="email" name="email" value="<?php $email = isset($_GET['email'])?$_GET['email']:"" ;echo $email ?>" ><br></br>
 
@@ -31,19 +31,18 @@
 </body>
 </html>
 <br>
-<a href="listar.php">Ver lista de toods os alunos</a>
 </body>
 </html>
 
 <?php
 if (isset($_POST['salvar'])) {
-    include "conexao.php";
+    include "conexao.php";//aqui so é a conexao com o banco para salvar 
 
-    $nome = $_POST['nome'];
+    $nome = $_POST['nome'];//pega os valores e mandem para o formualrio
     $idade = $_POST['idade'];
     $turma = $_POST['turma'];
 
-    $sql = "INSERT INTO alunos (nome, idade, turma) VALUES ('$nome', '$idade', '$turma')";
+    $sql = "INSERT INTO alunos (nome, idade, turma) VALUES ('$nome', '$idade', '$turma')";//tabela no banco
 
     if (mysqli_query($con, $sql)) {
         echo "Aluno cadastrado com sucesso";

@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-if (!isset($_POST['nome']) || !isset($_POST['email']) || !isset($_POST['matricula'])) {
+if (!isset($_POST['nome']) || !isset($_POST['email']) || !isset($_POST['matricula'])) {//aqui ta verificando se os dados foram enviados pelo post 
     header("Location: menu.php?error=dados_faltando");
     exit;
 }
-$id = $_POST['id'];
+$id = $_POST['id'];//aqui so vai pegar os valores enviados
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $matricula = $_POST['matricula'];
-update_usuario($email,$nome,$matricula);
-header("Location: lista.php?");
+update_usuario($id, $email, $nome, $matricula);//banco
+header("Location: lista.php?");//manda pra outra tela 
 exit;
 ?>

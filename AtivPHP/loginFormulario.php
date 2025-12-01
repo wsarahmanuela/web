@@ -2,7 +2,7 @@
 session_start();
 require_once("conexao.php");
 
-$usuarios = select_usuarios();
+$usuarios = select_usuarios();//lista do usuarios 
 if(!isset($_POST['email'])||!isset($_POST['matricula'])){
     header("Location:login.php?error=faltando_dados");
     exit;
@@ -10,19 +10,19 @@ if(!isset($_POST['email'])||!isset($_POST['matricula'])){
 
 $email = $_POST['email'];
 $matricula = $_POST['matricula'];
-$achou = false;
+$achou = false;//se deu certo
 
 foreach($usuarios as $usuario):
-    error_log("Entrou");
+    error_log("Entrou");//log do servidor (NÃO ESQUECE)
     error_log("Comparando: ");
     error_log("EmailForm: ".$email."#");
     error_log("Email_bd:   " . $usuario['email'] . "#");
     error_log("Matricula_form: " . $matricula . "#");
     error_log("Matricula_bd:   " . $usuario['matricula'] . "#");
 
-    if($email == $usuario['email']&& $matricula ==  $usuario['matricula']){
+    if($email == $usuario['email']&& $matricula ==  $usuario['matricula']){//so pra ver se bate com o que ta salvo 
         error_log("Logim bem sucedido");
-        $_SESSION['usuarioLogado'] = $usuario;
+        $_SESSION['usuarioLogado'] = $usuario;//e vai salvar na sessao
         $_SESSION['usuarioID'] = $usuario['id'];
         $_SESSION['usuarioNome']= $usuario['nome'];
         $_SESSION['usuarioEmail'] = $usuario['email'];

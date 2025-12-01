@@ -1,13 +1,12 @@
 <?php
     require_once ("conexao.php");
      if (!isset($_GET['id']) || empty($_GET['id'])) {
-        echo "<script>alert('ID não encontrado'); window.location.href='menu.php';</script>";
-        exit;
+         header("Location: menu.php?error=id_nao_encontrado");
     }
     $usuario = select_usuario($_GET['id']);
     if (!$usuario) {
-        echo "<script>alert('Usuario não encontrado!'); window.location.href='menu.php';</script>";
-        exit;
+         header("Location: menu.php?error=usuario_nao_encontrado");//manda ir para outra pagina se nao estiver faltando dados  
+         exit;//isso serve so para script não continuar rodando
     }
 ?>
 <!DOCTYPE html>
