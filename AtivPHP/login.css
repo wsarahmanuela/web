@@ -49,8 +49,15 @@ label {
     font-size: 14px;
     transition: border-color 0.3s;
 }
-
-
+header nav a {
+    color: #ffdddd;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+header nav a:hover {
+    text-decoration: underline;
+}
 #button {
     width: 100%;
     padding: 14px;

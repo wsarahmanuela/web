@@ -1,63 +1,81 @@
 <?php
+
 function connecta_bd(){
-    $host = "localhost";
-    $user = "root"; 
-    $pass = "Glsarah25!"; 
-    $db = "escola";
-    $conexao = mysqli_connect($host, $user, $pass, $db);
-    if (!$conexao) {
-        die("Erro na conexão: " . mysqli_connect_error());
-    }
-    return $conexao;
+    $servername = "localhost";
+    $username = "root";
+    $password = "Glsarah25!";
+    $dbname = "escola";
+
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    return $pdo;
 }
 
 function cadastra_usuario($email, $nome, $matricula, $dataNascimento){
-    $conexao = connecta_bd();
-    $stmt = $conexao->prepare("INSERT INTO usuarios (email, nome, matricula, data_nascimento) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param('ssis', $email, $nome, $matricula, $dataNascimento);
-    $resultado = $stmt->execute();
-    $stmt->close();
-    $conexao->close();
-    return $resultado;
+    $con = connecta_bd();
+
+    try {
+        $stmt = $con->prepare("
+            INSERT INTO usuarios (email, nome, matricula, data_nascimento)
+            VALUES (:email, :nome, :matricula, :data_nascimento)
+        ");
+
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':matricula', $matricula);
+        $stmt->bindParam(':data_nascimento', $dataNascimento);
+
+        $stmt->execute();
+        return true;
+
+    } catch (PDOException $e) {
+
+        // erro de email duplicado
+        if ($e->getCode() == 23000) {
+            return "duplicado";
+        }
+
+        return "erro";
+    }
 }
+
 function delete_usuario($id){
-    $conexao = connecta_bd();
-    $stmt = $conexao->prepare("DELETE FROM usuarios WHERE id = ?");
-    $stmt->bind_param('i', $id);
-    $resultado = $stmt->execute();
-    $stmt->close();
-    $conexao->close();
-    return $resultado;
+    $con = connecta_bd();
+    $stmt = $con->prepare("DELETE FROM usuarios WHERE id = :id");
+    $stmt->bindParam(':id', $id);
+    return $stmt->execute();
 }
+
 function update_usuario($id, $email, $nome, $matricula){
-    $conexao = connecta_bd();
-    $stmt = $conexao->prepare("UPDATE usuarios SET email = ?, nome = ?, matricula = ? WHERE id = ?");
-    $stmt->bind_param('ssii', $email, $nome, $matricula, $id);
-    $resultado = $stmt->execute();
-    $stmt->close();
-    $conexao->close();
-    return $resultado;
+    $con = connecta_bd();
+    $stmt = $con->prepare("
+        UPDATE usuarios
+        SET email = :email, nome = :nome, matricula = :matricula
+        WHERE id = :id
+    ");
+
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':matricula', $matricula);
+
+    return $stmt->execute();
 }
+
 function select_usuario($id){
-    $conexao = connecta_bd();
-    $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE id = ?");
-    $stmt->bind_param('i', $id);
+    $con = connecta_bd();
+    $stmt = $con->prepare("SELECT * FROM usuarios WHERE id = :id");
+    $stmt->bindParam(':id', $id);
     $stmt->execute();
-    $result = $stmt->get_result();
-    $usuario = $result->fetch_assoc();
-    $stmt->close();
-    $conexao->close();
-    return $usuario;
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
 function select_usuarios(){
-    $conexao = connecta_bd();
-    $stmt = $conexao->prepare("SELECT * FROM usuarios");
+    $con = connecta_bd();
+    $stmt = $con->prepare("SELECT * FROM usuarios ORDER BY id ASC");
     $stmt->execute();
-    $result = $stmt->get_result();
-    $usuarios = $result->fetch_all(MYSQLI_ASSOC);
-    $stmt->close();
-    $conexao->close();
-    return $usuarios;
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-?>
+
 ?>

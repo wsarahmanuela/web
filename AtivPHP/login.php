@@ -10,6 +10,9 @@
 <body>
    <header>
         <h1>Login</h1>
+        <nav>
+            <a href="cadastrar.php">Cadastrar</a>
+        </nav>
     </header>
     <div class="container">
     

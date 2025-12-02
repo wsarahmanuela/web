@@ -1,4 +1,4 @@
-<?php
+  <?php
 require_once("Conexao.php");
 $usuarios = select_usuarios();
 require_once ("menu.php");

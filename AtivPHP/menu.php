@@ -13,18 +13,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MENU</title>
-    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="menu.css">
 </head>
 <body>
     <header>
-        <h1>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</h1>
+        <h1>Bem-vindo(a)!</h1>
         <nav>
-            <a href="Logout.php">Sair</a>
+            <a href="cadastrar.php">Sair</a>
         </nav>
     </header>
     
     <div class="container">
-        <h2>Usuários Cadastrados</h2>
+        <h2>Lista dos Usuarios</h2>
         <table>
             <thead>
                 <tr>
@@ -42,8 +42,8 @@
                     <td><?php echo htmlspecialchars($u['email']); ?></td>
                     <td><?php echo htmlspecialchars($u['matricula']); ?></td>
                     <td>
-                        <a href="EditarCadastro.php?id=<?php echo $u['id']; ?>" class="btn-editar">Editar</a>
-                        <a href="DeletarUsuario.php?id=<?php echo $u['id']; ?>" class="btn-deletar" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                        <a href="editarCadastro.php?id=<?php echo $u['id']; ?>" class="btn-editar">Editar</a>
+                        <a href="excluirCadastro.php?id=<?php echo $u['id']; ?>" class="btn-deletar">Excluir</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

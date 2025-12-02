@@ -28,13 +28,16 @@
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($usuario['id']) ?>">
 
        <label for="nome">Nome: </label>
-       <input type="text" class="input" id="nome" name="nome"  value="<?php echo htmlspecialchars($usuario['nome'])?>  "><br></br>
+       <input type="text" class="input" id="nome" name="nome"  value="<?php echo htmlspecialchars($usuario['nome'])?>"><br></br>
 
        <label for="email">Email: </label>
-       <input type="text" class="input" id="email" name="email"  value="<?php echo htmlspecialchars($usuario['email'])?>  "><br></br>
+       <input type="text" class="input" id="email" name="email"  value="<?php echo htmlspecialchars($usuario['email'])?>"><br></br>
 
        <label for="telefone">Matricula: </label>
-       <input type="text" class="input" id="matricula" name="matricula" value="<?php echo htmlspecialchars($usuario['matricula'])?>  "><br></br>  
+       <input type="text" class="input" id="matricula" name="matricula" value="<?php echo htmlspecialchars($usuario['matricula'])?>"><br></br>  
+
+        <label for="dataNascimento">Data de Nascimento: </label>
+        <input class="input" type="date" id="dataNascimento" name="dataNascimento" value="<?php echo htmlspecialchars($usuario['data_nascimento'])?>"><br></br>   
         <input type="submit" id="button" value="Salvar">
 
 </form>
