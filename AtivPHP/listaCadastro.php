@@ -13,7 +13,6 @@ require_once ("menu.php");
             <th>Nome</th>
             <th>Email</th>
             <th>Matricula</th>
-
         </tr>
         <?php foreach ($usuarios as $usuario): ?>
             <tr>

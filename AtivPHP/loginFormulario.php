@@ -7,7 +7,6 @@ if(!isset($_POST['email'])||!isset($_POST['matricula'])){
     header("Location:login.php?error=faltando_dados");
     exit;
 }//aqui ta verifincado os dados enviados
-
 $email = $_POST['email'];
 $matricula = $_POST['matricula'];
 $achou = false;//se deu certo

@@ -39,7 +39,6 @@
         <label for="dataNascimento">Data de Nascimento: </label>
         <input class="input" type="date" id="dataNascimento" name="dataNascimento" value="<?php echo htmlspecialchars($usuario['data_nascimento'])?>"><br></br>   
         <input type="submit" id="button" value="Salvar">
-
 </form>
 </div>
 </body>

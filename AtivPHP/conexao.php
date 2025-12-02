@@ -1,5 +1,4 @@
 <?php
-
 function connecta_bd(){
     $servername = "localhost";
     $username = "root";
@@ -11,7 +10,6 @@ function connecta_bd(){
 
     return $pdo;
 }
-
 function cadastra_usuario($email, $nome, $matricula, $dataNascimento){
     $con = connecta_bd();
 
@@ -20,33 +18,25 @@ function cadastra_usuario($email, $nome, $matricula, $dataNascimento){
             INSERT INTO usuarios (email, nome, matricula, data_nascimento)
             VALUES (:email, :nome, :matricula, :data_nascimento)
         ");
-
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':matricula', $matricula);
         $stmt->bindParam(':data_nascimento', $dataNascimento);
-
         $stmt->execute();
         return true;
 
-    } catch (PDOException $e) {
-
-        // erro de email duplicado
+    } catch (PDOException $e) {//email duplicado 
         if ($e->getCode() == 23000) {
-            return "duplicado";
+            return "erro";
         }
-
-        return "erro";
     }
 }
-
 function delete_usuario($id){
     $con = connecta_bd();
-    $stmt = $con->prepare("DELETE FROM usuarios WHERE id = :id");
+    $stmt = $con->prepare("DELETE FROM usuarios WHERE id = :id");//deleta pelo id
     $stmt->bindParam(':id', $id);
     return $stmt->execute();
 }
-
 function update_usuario($id, $email, $nome, $matricula){
     $con = connecta_bd();
     $stmt = $con->prepare("
@@ -59,10 +49,8 @@ function update_usuario($id, $email, $nome, $matricula){
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':matricula', $matricula);
-
     return $stmt->execute();
 }
-
 function select_usuario($id){
     $con = connecta_bd();
     $stmt = $con->prepare("SELECT * FROM usuarios WHERE id = :id");
@@ -70,12 +58,10 @@ function select_usuario($id){
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
-
 function select_usuarios(){
     $con = connecta_bd();
     $stmt = $con->prepare("SELECT * FROM usuarios ORDER BY id ASC");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
 ?>
