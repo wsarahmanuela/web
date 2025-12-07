@@ -11,8 +11,8 @@ $email = $_POST['email'];
 $matricula = $_POST['matricula'];
 $achou = false;//se deu certo
 
-foreach($usuarios as $usuario):
-    error_log("Entrou");//log do servidor (NÃO ESQUECE)
+foreach($usuarios as $usuario)://se tem matricula email
+    error_log("Entrou");//log de servidor 
     error_log("Comparando: ");
     error_log("EmailForm: ".$email."#");
     error_log("Email_bd:   " . $usuario['email'] . "#");
@@ -32,7 +32,7 @@ foreach($usuarios as $usuario):
         exit;
     }
 endforeach;
-if($achou == false){//aqui so é para verificar se tem o usuario 
+if($achou == false){//aqui so é para verificar se tem o usuario ou nao 
     header("Location: login.php?error=dados_incorretos");
     exit;
 }

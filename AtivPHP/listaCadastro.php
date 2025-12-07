@@ -1,6 +1,6 @@
   <?php
 require_once("Conexao.php");
-$usuarios = select_usuarios();
+$usuarios = select_usuarios();//so ta chamando uma funcao que vai ser buscado no banco
 require_once ("menu.php");
 ?>
 
@@ -13,13 +13,15 @@ require_once ("menu.php");
             <th>Nome</th>
             <th>Email</th>
             <th>Matricula</th>
+            <th>Data de nascimento
         </tr>
-        <?php foreach ($usuarios as $usuario): ?>
+        <?php foreach ($usuarios as $usuario): ?><!--para fazer as lista array-->
             <tr>
-                <td><?php echo htmlspecialchars($usuario['id']) ?></td>
-                <td><?php echo htmlspecialchars($usuario['nome']) ?></td>
-                <td><?php echo htmlspecialchars($usuario['email']) ?></td>
-                <td><?php echo htmlspecialchars($usuario['mateicula']) ?></td>
+                <td><?php echo $usuario['id'] ?></td>
+                <td><?php echo $usuario['nome'] ?></td>
+                <td><?php echo $usuario['email'] ?></td>
+                <td><?php echo $usuario['matricula'] ?></td>
+                <td><?php echo $usuario['data_nascimento'] ?></td>
                 <td>
                     <a href="editarCadastro.php?id=<?php echo $usuario['id']; ?>">Editar</a>
                 </td>
@@ -27,6 +29,7 @@ require_once ("menu.php");
                     <a href="excluirCadastro.php?id=<?php echo $usuario['id']; ?>">Excluir</a>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php endforeach;
+         ?>
     </table>
 </div>

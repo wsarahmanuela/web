@@ -1,10 +1,10 @@
 <?php
-    require_once ("conexao.php");
-     if (!isset($_GET['id']) || empty($_GET['id'])) {
-         header("Location: menu.php?error=id_nao_encontrado");
+    require_once ("conexao.php");//uma vez
+     if (!isset($_GET['id']) || empty($_GET['id'])) {//pegar e nao esta vazio
+         header("Location: cadastrar.php?error=id_nao_encontrado");
     }
-    $usuario = select_usuario($_GET['id']);
-    if (!$usuario) {
+    $usuario = select_usuario($_GET['id']);//buscar o usuario chamando a funcao 
+    if (!$usuario) {//se ele existe
          header("Location: menu.php?error=usuario_nao_encontrado");//manda ir para outra pagina se nao estiver faltando dados  
          exit;//isso serve so para script não continuar rodando
     }
@@ -25,19 +25,19 @@
 
 <form action="EditarCadastroFormulario.php" method="POST">
        
-        <input type="hidden" name="id" value="<?php echo htmlspecialchars($usuario['id']) ?>">
+        <input type="hidden" name="id" value="<?php echo ($usuario['id']) ?>">
 
        <label for="nome">Nome: </label>
-       <input type="text" class="input" id="nome" name="nome"  value="<?php echo htmlspecialchars($usuario['nome'])?>"><br></br>
+       <input type="text" class="input" id="nome" name="nome"  value="<?php echo ($usuario['nome'])?>"><br></br>
 
        <label for="email">Email: </label>
-       <input type="text" class="input" id="email" name="email"  value="<?php echo htmlspecialchars($usuario['email'])?>"><br></br>
+       <input type="text" class="input" id="email" name="email"  value="<?php echo ($usuario['email'])?>"><br></br>
 
        <label for="telefone">Matricula: </label>
-       <input type="text" class="input" id="matricula" name="matricula" value="<?php echo htmlspecialchars($usuario['matricula'])?>"><br></br>  
+       <input type="text" class="input" id="matricula" name="matricula" value="<?php echo ($usuario['matricula'])?>"><br></br>  
 
         <label for="dataNascimento">Data de Nascimento: </label>
-        <input class="input" type="date" id="dataNascimento" name="dataNascimento" value="<?php echo htmlspecialchars($usuario['data_nascimento'])?>"><br></br>   
+        <input class="input" type="date" id="dataNascimento" name="dataNascimento" value="<?php echo ($usuario['data_nascimento'])?>"><br></br>   
         <input type="submit" id="button" value="Salvar">
 </form>
 </div>

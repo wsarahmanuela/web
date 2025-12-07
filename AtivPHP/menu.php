@@ -32,15 +32,17 @@
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Matrícula</th>
+                    <th>Data de nascimento</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($usuarios as $u): ?>
+                <?php foreach ($usuarios as $usuario): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($u['id']); ?></td>
-                    <td><?php echo htmlspecialchars($u['nome']); ?></td>
-                    <td><?php echo htmlspecialchars($u['email']); ?></td>
-                    <td><?php echo htmlspecialchars($u['matricula']); ?></td>
+                    <td><?php echo ($u['id']); ?></td>
+                    <td><?php echo ($u['nome']); ?></td>
+                    <td><?php echo ($u['email']); ?></td>
+                    <td><?php echo ($u['matricula']); ?></td>
+                    <td><?php echo ($u['data_nascimento']); ?></td>                             
                     <td>
                         <a href="editarCadastro.php?id=<?php echo $u['id']; ?>" class="btn-editar">Editar</a>
                         <a href="excluirCadastro.php?id=<?php echo $u['id']; ?>" class="btn-deletar">Excluir</a>
