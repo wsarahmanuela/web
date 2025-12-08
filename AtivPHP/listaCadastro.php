@@ -15,7 +15,7 @@ require_once ("menu.php");
             <th>Matricula</th>
             <th>Data de nascimento
         </tr>
-        <?php foreach ($usuarios as $usuario): ?><!--para fazer as lista array-->
+        <?php foreach ($usuarios as $usuario): ?><!--para fazer loop para as lista array-->
             <tr>
                 <td><?php echo $usuario['id'] ?></td>
                 <td><?php echo $usuario['nome'] ?></td>

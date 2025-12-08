@@ -2,7 +2,7 @@
 session_start();
 require_once("conexao.php"); 
 if (!isset($_POST['nome']) || !isset($_POST['email']) || !isset($_POST['matricula']) !isset($_POST['data_nascimento'])) {//aqui ta verificando se os dados foram enviados pelo post 
-    header("Location: menu.php?error=dados_faltando");
+    header("Location: editarCadastro.php?error=dados_faltando");
     exit;
 }
 $id = $_POST['id'];//aqui so vai pegar os valores enviados

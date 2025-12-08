@@ -21,7 +21,7 @@
         <label for="email">Email: </label>
         <input class="input" type="email" id="email" name="email" value="<?php echo isset($_GET['email']) ? $_GET['email']: ''; ?>"><br><br>
 
-        <label for="matricula">Matrícula: </label>
+        <label for="matricula">Matricula: </label>
         <input class="input" type="number" id="matricula" name="matricula" value="<?php echo isset($_GET['matricula']) ? $_GET['matricula']: ''; ?>"><br><br>
 
         <label for="dataNascimento">Data de Nascimento: </label>

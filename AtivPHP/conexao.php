@@ -30,9 +30,9 @@ function cadastra_usuario($email, $nome, $matricula, $dataNascimento){//recebend
     }
 }
 function delete_usuario($id){
-    $con = connecta_bd();
+    $con = connecta_bd();//funcao para conectar com o banco 
     $stmt = $con->prepare("DELETE FROM usuarios WHERE id = :id");//deleta pelo id
-    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':id', $id);//coloca o id que vai ser oq vai ser excluido no comando 
     return $stmt->execute();
 }
 function update_usuario($id, $email, $nome, $matricula, $data_nascimento){
@@ -50,7 +50,7 @@ function update_usuario($id, $email, $nome, $matricula, $data_nascimento){
     $stmt->bindParam(':data_nascimento', $data_nascimento);
     return $stmt->execute();
 }
-function select_usuario($id){//buscra o usuario 
+function select_usuario($id){//buscra o usuario que recebe o is
     $con = connecta_bd();
     $stmt = $con->prepare("SELECT * FROM usuarios WHERE id = :id");
     $stmt->bindParam(':id', $id);

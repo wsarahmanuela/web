@@ -5,7 +5,7 @@
     }
     $usuario = select_usuario($_GET['id']);//buscar o usuario chamando a funcao 
     if (!$usuario) {//se ele existe
-         header("Location: menu.php?error=usuario_nao_encontrado");//manda ir para outra pagina se nao estiver faltando dados  
+         header("Location: cadastro.php?error=usuario_nao_encontrado");  
          exit;//isso serve so para script não continuar rodando
     }
 ?>
